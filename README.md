@@ -7,3 +7,5 @@
 需要在安卓模拟器中以手机模式，1080P运行
 
 题主使用的是逍遥模拟器：http://www.xyaz.cn/
+
+<img src="C:\Users\hzhuchao\Desktop\模拟器.png" alt="模拟器" style="zoom:75%;" />
