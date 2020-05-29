@@ -7,9 +7,9 @@ import time
 diedangao = '999 1720'
 zuorenwu_lingjinbi = '564 1619'
 renwu_anniu1 = '884 1231'
-renwu_anniu2 = '884 1422'
-renwu_anniu3 = '884 1817'
-renwu_anniu4 = '884 2015'
+renwu_anniu2 = '884 1232'
+renwu_anniu3 = '884 1429'
+renwu_anniu4 = '884 1429'
 renwu_anniu5 = '884 2203'
 gouwu_liulan1 = '459 1123'
 gouwu_liulan2 = '967 1123'
@@ -19,7 +19,7 @@ gouwu_liulan5 = '460 2067'
 huadong_src = '542 1200'
 huadong_dst = '542 755'
 back_anniu = '58 122'
-a, b, c, d, x = 0, 0, 0, 0, 0
+a, b, c, d = 0, 0, 0, 0
 # 链接模拟器
 # os.system(r'‪D:\XiaoYao\MEmu\MEmu.exe')
 os.system('adb connect 127.0.0.1:21503')
@@ -42,32 +42,30 @@ time.sleep(4)
 while a < 21:
     a += 1
     os.system('adb shell input tap {}'.format(renwu_anniu1))
-    time.sleep(13)
+    time.sleep(14)
     os.system('adb shell input keyevent KEYCODE_BACK')
-    time.sleep(2)
+    time.sleep(3)
 
 while b < 5:
     b += 1
     os.system('adb shell input tap {}'.format(renwu_anniu2))
-    time.sleep(5)
-    while x < 5:
-        x += 1
-        os.system('adb shell input tap {}'.format(gouwu_liulan1))
-        time.sleep(2)
-        os.system('adb shell input tap {}'.format(gouwu_liulan2))
-        time.sleep(2)
-        os.system('adb shell input tap {}'.format(gouwu_liulan3))
-        time.sleep(2)
-        os.system('adb shell input tap {}'.format(gouwu_liulan4))
-        time.sleep(2)
-        os.system('adb shell input swipe {} {}'.format(
-            huadong_src, huadong_dst))
-        time.sleep(2)
-        os.system('adb shell input tap {}'.format(gouwu_liulan5))
-        time.sleep(2)
-        # os.system('adb shell input keyevent KEYCODE_BACK')
-        os.system('adb shell input tap {}'.format(back_anniu))
-        time.sleep(3)
+    time.sleep(4)
+    os.system('adb shell input tap {}'.format(gouwu_liulan1))
+    time.sleep(2)
+    os.system('adb shell input tap {}'.format(gouwu_liulan2))
+    time.sleep(2)
+    os.system('adb shell input tap {}'.format(gouwu_liulan3))
+    time.sleep(2)
+    os.system('adb shell input tap {}'.format(gouwu_liulan4))
+    time.sleep(2)
+    os.system('adb shell input swipe {} {}'.format(
+        huadong_src, huadong_dst))
+    time.sleep(2)
+    os.system('adb shell input tap {}'.format(gouwu_liulan5))
+    time.sleep(2)
+    # os.system('adb shell input keyevent KEYCODE_BACK')
+    os.system('adb shell input tap {}'.format(back_anniu))
+    time.sleep(3)
 
 while c < 5:
     c += 1
@@ -79,27 +77,31 @@ while c < 5:
 while d < 5:
     d += 1
     os.system('adb shell input tap {}'.format(renwu_anniu4))
-    time.sleep(3)
+    time.sleep(2)
     os.system('adb shell input tap {}'.format(gouwu_liulan1))
-    time.sleep(3)
+    time.sleep(2)
     os.system('adb shell input keyevent KEYCODE_BACK')
-    time.sleep(3)
+    time.sleep(1.5)
     os.system('adb shell input tap {}'.format(gouwu_liulan2))
-    time.sleep(3)
+    time.sleep(2)
     os.system('adb shell input keyevent KEYCODE_BACK')
-    time.sleep(3)
+    time.sleep(1.5)
     os.system('adb shell input tap {}'.format(gouwu_liulan3))
-    time.sleep(3)
+    time.sleep(2)
     os.system('adb shell input keyevent KEYCODE_BACK')
-    time.sleep(3)
+    time.sleep(1.5)
     os.system('adb shell input tap {}'.format(gouwu_liulan4))
-    time.sleep(3)
+    time.sleep(2)
     os.system('adb shell input keyevent KEYCODE_BACK')
-    time.sleep(3)
+    time.sleep(1.5)
     os.system('adb shell input swipe {} {}'.format(huadong_src, huadong_dst))
-    time.sleep(3)
+    time.sleep(2)
     os.system('adb shell input tap {}'.format(gouwu_liulan5))
-    time.sleep(3)
+    time.sleep(1.5)
+    os.system('adb shell input keyevent KEYCODE_BACK')
+    time.sleep(1.5)
+    os.system('adb shell input tap {}'.format(back_anniu))
+    time.sleep(1.5)
 
 os.system('adb shell input tap {}'.format(renwu_anniu5))
 time.sleep(10)
