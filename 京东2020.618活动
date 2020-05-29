@@ -1,0 +1,108 @@
+# coding=utf-8
+
+import os
+import time
+
+# 坐标
+diedangao = '999 1720'
+zuorenwu_lingjinbi = '564 1619'
+renwu_anniu1 = '884 1231'
+renwu_anniu2 = '884 1422'
+renwu_anniu3 = '884 1817'
+renwu_anniu4 = '884 2015'
+renwu_anniu5 = '884 2203'
+gouwu_liulan1 = '459 1123'
+gouwu_liulan2 = '967 1123'
+gouwu_liulan3 = '459 1903'
+gouwu_liulan4 = '967 1900'
+gouwu_liulan5 = '460 2067'
+huadong_src = '542 1200'
+huadong_dst = '542 755'
+back_anniu = '58 122'
+a, b, c, d, x = 0, 0, 0, 0, 0
+# 链接模拟器
+# os.system(r'‪D:\XiaoYao\MEmu\MEmu.exe')
+os.system('adb connect 127.0.0.1:21503')
+time.sleep(2)
+
+# 查看京东app是否运行
+app_current = os.popen(
+    'adb shell dumpsys window windows | findstr "Current"').read()
+if 'jingdong' in app_current:
+    os.system('adb shell am force-stop com.jingdong.app.mall')
+# 开启京东app
+os.system('adb shell am start -n com.jingdong.app.mall/com.jingdong.app.mall.MainFrameActivity')
+time.sleep(5)
+# 点击叠蛋糕
+os.system('adb shell input tap {}'.format(diedangao))
+time.sleep(4)
+# 点击做任务领金币
+os.system('adb shell input tap {}'.format(zuorenwu_lingjinbi))
+time.sleep(4)
+while a < 21:
+    a += 1
+    os.system('adb shell input tap {}'.format(renwu_anniu1))
+    time.sleep(13)
+    os.system('adb shell input keyevent KEYCODE_BACK')
+    time.sleep(2)
+
+while b < 5:
+    b += 1
+    os.system('adb shell input tap {}'.format(renwu_anniu2))
+    time.sleep(5)
+    while x < 5:
+        x += 1
+        os.system('adb shell input tap {}'.format(gouwu_liulan1))
+        time.sleep(2)
+        os.system('adb shell input tap {}'.format(gouwu_liulan2))
+        time.sleep(2)
+        os.system('adb shell input tap {}'.format(gouwu_liulan3))
+        time.sleep(2)
+        os.system('adb shell input tap {}'.format(gouwu_liulan4))
+        time.sleep(2)
+        os.system('adb shell input swipe {} {}'.format(
+            huadong_src, huadong_dst))
+        time.sleep(2)
+        os.system('adb shell input tap {}'.format(gouwu_liulan5))
+        time.sleep(2)
+        # os.system('adb shell input keyevent KEYCODE_BACK')
+        os.system('adb shell input tap {}'.format(back_anniu))
+        time.sleep(3)
+
+while c < 5:
+    c += 1
+    os.system('adb shell input tap {}'.format(renwu_anniu3))
+    time.sleep(3)
+    os.system('adb shell input keyevent KEYCODE_BACK')
+    time.sleep(3)
+
+while d < 5:
+    d += 1
+    os.system('adb shell input tap {}'.format(renwu_anniu4))
+    time.sleep(3)
+    os.system('adb shell input tap {}'.format(gouwu_liulan1))
+    time.sleep(3)
+    os.system('adb shell input keyevent KEYCODE_BACK')
+    time.sleep(3)
+    os.system('adb shell input tap {}'.format(gouwu_liulan2))
+    time.sleep(3)
+    os.system('adb shell input keyevent KEYCODE_BACK')
+    time.sleep(3)
+    os.system('adb shell input tap {}'.format(gouwu_liulan3))
+    time.sleep(3)
+    os.system('adb shell input keyevent KEYCODE_BACK')
+    time.sleep(3)
+    os.system('adb shell input tap {}'.format(gouwu_liulan4))
+    time.sleep(3)
+    os.system('adb shell input keyevent KEYCODE_BACK')
+    time.sleep(3)
+    os.system('adb shell input swipe {} {}'.format(huadong_src, huadong_dst))
+    time.sleep(3)
+    os.system('adb shell input tap {}'.format(gouwu_liulan5))
+    time.sleep(3)
+
+os.system('adb shell input tap {}'.format(renwu_anniu5))
+time.sleep(10)
+os.system('adb shell input keyevent KEYCODE_BACK')
+time.sleep((2))
+print('所有签到已经完成')
